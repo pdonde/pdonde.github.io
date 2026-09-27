@@ -4,10 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- ============================================================
-     EDIT THESE THREE THINGS: <title>, the SITE block, the PROJECTS
-     block. Everything below them is layout you can leave alone.
-     ============================================================ -->
 
 <title>Pratik — Projects</title>
 <meta name="description" content="Projects and published work.">
@@ -130,69 +126,35 @@
 </div>
 
 <script>
-/* ==================================================================
-   1) SITE — who you are and where else you live online.
-   ================================================================== */
 const SITE = {
   name:    "Pratik",
-  tagline: "Things I've built and published. Mostly computational geometry, numerical methods, and whatever I'm curious about this month.",
+  tagline: "Things I've built and published.",
   links: [
-    { label: "github",   url: "https://github.com/YOUR-USERNAME" },
-    // { label: "linkedin", url: "https://www.linkedin.com/in/YOUR-HANDLE" },
-    // { label: "email",    url: "mailto:you@example.com" },
+    { label: "github", url: "https://github.com/pdonde" },
   ]
 };
 
-/* ==================================================================
-   2) PROJECTS — add a new object to this list for each project.
-      Only `title` and `url` are required. Delete the fields you
-      don't want; the card adapts. Newest first reads best.
-
-      status: "live" | "wip" | "archived" | anything short, or omit
-      tags:   short lowercase keywords, used by the filter bar
-      extra:  secondary links (repo, paper, demo, writeup)
-   ================================================================== */
 const PROJECTS = [
-
   {
-    title:  "Example Project One",
-    url:    "https://example.com/project-one",
-    blurb:  "One or two sentences on what it does and why it exists. Keep it plain — this is the line that decides whether someone clicks.",
+    title:  "Dals and pulses of the Indian kitchen",
+    url:    "https://pdonde.github.io/lentils_chart/",
+    blurb:  "A chart of dals and pulses with their names in Marathi, Hindi, Kannada and English.",
     status: "live",
     year:   "2026",
-    tags:   ["python", "geometry"],
-    extra:  [
-      { label: "repo",   url: "https://github.com/YOUR-USERNAME/project-one" },
-      { label: "writeup", url: "https://example.com/project-one/notes" },
-    ]
+    tags:   ["food", "languages"],
+    extra:  [ { label: "repo", url: "https://github.com/pdonde/lentils_chart" } ]
   },
-
   {
-    title:  "Example Project Two",
-    url:    "https://your-username.github.io/project-two/",
-    blurb:  "A second example so you can see the spacing with more than one card.",
-    status: "wip",
-    year:   "2025",
-    tags:   ["javascript", "visualization"]
+    title:  "Our World",
+    url:    "https://pdonde.github.io/exploratory_map_animals/",
+    blurb:  "An exploratory map of continents, oceans, cities and animals.",
+    status: "live",
+    year:   "2026",
+    tags:   ["maps", "visualization"],
+    extra:  [ { label: "repo", url: "https://github.com/pdonde/exploratory_map_animals" } ]
   },
-
-  // ---- copy this block to add a project -------------------------
-  // {
-  //   title:  "",
-  //   url:    "",
-  //   blurb:  "",
-  //   status: "live",
-  //   year:   "",
-  //   tags:   [],
-  //   extra:  [ { label: "repo", url: "" } ]
-  // },
-  // ---------------------------------------------------------------
-
 ];
 
-/* ==================================================================
-   3) Rendering. You shouldn't need to touch anything below here.
-   ================================================================== */
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
   ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
 
