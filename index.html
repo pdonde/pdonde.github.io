@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============================================================
+     EDIT THESE THREE THINGS: <title>, the SITE block, the PROJECTS
+     block. Everything below them is layout you can leave alone.
+     ============================================================ -->
+
+<title>Pratik — Projects</title>
+<meta name="description" content="Projects and published work.">
+<meta name="color-scheme" content="light dark">
+
+<style>
+  :root{
+    --bg:#fbfbfa; --panel:#ffffff; --border:#e3e2df; --border-strong:#cfcdc8;
+    --text:#1a1a18; --muted:#6b6963; --accent:#2f5d50; --accent-soft:#eaf1ee;
+    --chip:#f2f1ee; --shadow:0 1px 2px rgba(0,0,0,.05);
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#111312; --panel:#181a19; --border:#272a28; --border-strong:#3a3e3b;
+      --text:#e8e8e4; --muted:#9a9a93; --accent:#7fc3ad; --accent-soft:#1b2723;
+      --chip:#212421; --shadow:none;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--sans); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:780px; margin:0 auto; padding:56px 16px 80px}
+  @media (max-width:600px){ .wrap{padding:36px 16px 56px} }
+
+  /* ---- header ---- */
+  header{margin-bottom:44px}
+  h1{
+    font-family:var(--mono); font-size:1.5rem; font-weight:600;
+    letter-spacing:-.01em; margin:0 0 6px;
+  }
+  h1 .dot{color:var(--accent)}
+  .tagline{color:var(--muted); margin:0 0 18px; max-width:56ch}
+  .links{display:flex; flex-wrap:wrap; gap:8px 14px; font-family:var(--mono); font-size:.82rem}
+  .links a{
+    color:var(--muted); text-decoration:none; border-bottom:1px solid var(--border-strong);
+    padding-bottom:1px;
+  }
+  .links a:hover{color:var(--accent); border-color:var(--accent)}
+
+  /* ---- filter bar ---- */
+  .bar{
+    display:flex; flex-wrap:wrap; gap:6px; align-items:center;
+    margin:0 0 20px; padding-bottom:16px; border-bottom:1px solid var(--border);
+  }
+  .bar .label{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); margin-right:6px;
+  }
+  .tagbtn{
+    font-family:var(--mono); font-size:.75rem; color:var(--muted);
+    background:var(--chip); border:1px solid transparent; border-radius:999px;
+    padding:3px 10px; cursor:pointer;
+  }
+  .tagbtn:hover{border-color:var(--border-strong); color:var(--text)}
+  .tagbtn[aria-pressed="true"]{
+    background:var(--accent-soft); color:var(--accent); border-color:var(--accent);
+  }
+
+  /* ---- project list ---- */
+  ul.projects{list-style:none; margin:0; padding:0; display:grid; gap:12px}
+  .card{
+    background:var(--panel); border:1px solid var(--border); border-radius:10px;
+    padding:16px 18px; box-shadow:var(--shadow); transition:border-color .15s,transform .15s;
+  }
+  .card:hover{border-color:var(--border-strong)}
+  .card .top{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px}
+  .card h2{font-size:1.02rem; font-weight:600; margin:0; line-height:1.35}
+  .card h2 a{color:var(--text); text-decoration:none}
+  .card h2 a:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+  .card h2 a::after{content:" ↗"; font-size:.78em; color:var(--muted); text-decoration:none}
+  .status{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.07em; text-transform:uppercase;
+    border:1px solid var(--border-strong); color:var(--muted);
+    border-radius:4px; padding:1px 6px; white-space:nowrap;
+  }
+  .status.live{color:var(--accent); border-color:var(--accent)}
+  .card p{margin:7px 0 0; color:var(--muted); font-size:.93rem}
+  .meta{display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; font-family:var(--mono); font-size:.72rem}
+  .meta span{background:var(--chip); color:var(--muted); border-radius:4px; padding:2px 7px}
+  .extra{margin-top:10px; font-family:var(--mono); font-size:.75rem; display:flex; flex-wrap:wrap; gap:14px}
+  .extra a{color:var(--muted); text-decoration:none; border-bottom:1px solid var(--border-strong)}
+  .extra a:hover{color:var(--accent); border-color:var(--accent)}
+
+  .empty{color:var(--muted); font-family:var(--mono); font-size:.85rem; padding:24px 0}
+  footer{
+    margin-top:52px; padding-top:18px; border-top:1px solid var(--border);
+    font-family:var(--mono); font-size:.74rem; color:var(--muted);
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between;
+  }
+  footer a{color:var(--muted)}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1 id="site-name">name<span class="dot">.</span></h1>
+    <p class="tagline" id="site-tagline"></p>
+    <nav class="links" id="site-links" aria-label="Elsewhere"></nav>
+  </header>
+
+  <div class="bar" id="filters" role="group" aria-label="Filter by tag">
+    <span class="label">filter</span>
+  </div>
+
+  <ul class="projects" id="list"></ul>
+  <p class="empty" id="empty" hidden>No projects match that tag.</p>
+
+  <footer>
+    <span id="count"></span>
+    <span>Built as a static page on GitHub Pages.</span>
+  </footer>
+</div>
+
+<script>
+/* ==================================================================
+   1) SITE — who you are and where else you live online.
+   ================================================================== */
+const SITE = {
+  name:    "Pratik",
+  tagline: "Things I've built and published. Mostly computational geometry, numerical methods, and whatever I'm curious about this month.",
+  links: [
+    { label: "github",   url: "https://github.com/YOUR-USERNAME" },
+    // { label: "linkedin", url: "https://www.linkedin.com/in/YOUR-HANDLE" },
+    // { label: "email",    url: "mailto:you@example.com" },
+  ]
+};
+
+/* ==================================================================
+   2) PROJECTS — add a new object to this list for each project.
+      Only `title` and `url` are required. Delete the fields you
+      don't want; the card adapts. Newest first reads best.
+
+      status: "live" | "wip" | "archived" | anything short, or omit
+      tags:   short lowercase keywords, used by the filter bar
+      extra:  secondary links (repo, paper, demo, writeup)
+   ================================================================== */
+const PROJECTS = [
+
+  {
+    title:  "Example Project One",
+    url:    "https://example.com/project-one",
+    blurb:  "One or two sentences on what it does and why it exists. Keep it plain — this is the line that decides whether someone clicks.",
+    status: "live",
+    year:   "2026",
+    tags:   ["python", "geometry"],
+    extra:  [
+      { label: "repo",   url: "https://github.com/YOUR-USERNAME/project-one" },
+      { label: "writeup", url: "https://example.com/project-one/notes" },
+    ]
+  },
+
+  {
+    title:  "Example Project Two",
+    url:    "https://your-username.github.io/project-two/",
+    blurb:  "A second example so you can see the spacing with more than one card.",
+    status: "wip",
+    year:   "2025",
+    tags:   ["javascript", "visualization"]
+  },
+
+  // ---- copy this block to add a project -------------------------
+  // {
+  //   title:  "",
+  //   url:    "",
+  //   blurb:  "",
+  //   status: "live",
+  //   year:   "",
+  //   tags:   [],
+  //   extra:  [ { label: "repo", url: "" } ]
+  // },
+  // ---------------------------------------------------------------
+
+];
+
+/* ==================================================================
+   3) Rendering. You shouldn't need to touch anything below here.
+   ================================================================== */
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+  ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+
+// Only allow link schemes that make sense on a public page.
+const safeUrl = u => {
+  const s = String(u ?? "").trim();
+  return /^(https?:|mailto:|\/|\.\/|#)/i.test(s) ? s : "#";
+};
+
+document.title = SITE.name + " — Projects";
+document.getElementById("site-name").innerHTML = esc(SITE.name) + '<span class="dot">.</span>';
+document.getElementById("site-tagline").textContent = SITE.tagline || "";
+document.getElementById("site-links").innerHTML = (SITE.links || [])
+  .map(l => `<a href="${esc(safeUrl(l.url))}" rel="noopener noreferrer">${esc(l.label)}</a>`)
+  .join("");
+
+const listEl   = document.getElementById("list");
+const emptyEl  = document.getElementById("empty");
+const filtersEl= document.getElementById("filters");
+const countEl  = document.getElementById("count");
+let active = null;
+
+const allTags = [...new Set(PROJECTS.flatMap(p => p.tags || []))].sort();
+
+function renderFilters(){
+  if (!allTags.length) { filtersEl.hidden = true; return; }
+  const btn = (label, val) =>
+    `<button class="tagbtn" type="button" data-tag="${esc(val ?? "")}" aria-pressed="${active === val}">${esc(label)}</button>`;
+  filtersEl.innerHTML = '<span class="label">filter</span>'
+    + btn("all", null) + allTags.map(t => btn(t, t)).join("");
+  filtersEl.querySelectorAll(".tagbtn").forEach(b => {
+    b.addEventListener("click", () => {
+      active = b.dataset.tag || null;
+      renderFilters(); renderList();
+    });
+  });
+}
+
+function card(p){
+  const status = p.status
+    ? `<span class="status ${esc(String(p.status).toLowerCase())}">${esc(p.status)}</span>` : "";
+  const year   = p.year ? `<span class="status">${esc(p.year)}</span>` : "";
+  const blurb  = p.blurb ? `<p>${esc(p.blurb)}</p>` : "";
+  const tags   = (p.tags || []).length
+    ? `<div class="meta">${p.tags.map(t => `<span>${esc(t)}</span>`).join("")}</div>` : "";
+  const extra  = (p.extra || []).length
+    ? `<div class="extra">${p.extra.map(e =>
+        `<a href="${esc(safeUrl(e.url))}" rel="noopener noreferrer">${esc(e.label)}</a>`).join("")}</div>` : "";
+  return `<li class="card">
+      <div class="top">
+        <h2><a href="${esc(safeUrl(p.url))}" rel="noopener noreferrer">${esc(p.title)}</a></h2>
+        ${status}${year}
+      </div>
+      ${blurb}${tags}${extra}
+    </li>`;
+}
+
+function renderList(){
+  const shown = active ? PROJECTS.filter(p => (p.tags || []).includes(active)) : PROJECTS;
+  listEl.innerHTML = shown.map(card).join("");
+  emptyEl.hidden = shown.length > 0;
+  countEl.textContent = `${shown.length} project${shown.length === 1 ? "" : "s"}`;
+}
+
+renderFilters();
+renderList();
+</script>
+</body>
+</html>
